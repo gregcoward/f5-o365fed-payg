@@ -32,7 +32,7 @@ else
 fi
 
 # download iApp templates
-template_location="http://cdn.f5.com/product/blackbox/staging/azure"
+template_location="https://raw.githubusercontent.com/gregcoward/f5-o365fed-payg/master"
 
 for template in f5.microsoft_office_365_idp.v1.1.0.tmpl
 do
