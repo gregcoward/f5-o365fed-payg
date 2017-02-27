@@ -36,7 +36,7 @@ else
 fi
 
 # download iApp templates
-template_location=$baseUrl
+template_location="http://cdn.f5.com/product/blackbox/staging/azure"
 
 for template in f5.microsoft_office_365_idp.v1.1.0.tmpl
 do
