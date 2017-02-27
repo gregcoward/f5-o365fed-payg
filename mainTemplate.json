@@ -52,7 +52,6 @@
     },
     "sshPublicKey": {
       "type": "string",
-      "defaultValue": "",
       "metadata": {
         "description": "The BIG-IP ssh public key."
       }
@@ -179,7 +178,6 @@
     },
     "vnetExistingRGName": {
       "type": "string",
-      "defaultValue": "",
       "metadata": {
         "description": "Existing Virtual Network name"
       }
@@ -195,7 +193,7 @@
     "entityId": "[concat('https://',trim(parameters('dnsFqdn')),'/idp/f5/')]",
     "vnetLink": "[concat(parameters('baseUrl'), '/', parameters('vnetNewOrExisting'),'vnet.json')]",
     "loadBalancerName": "[concat(variables('bigipNamePrefix'),'-alb')]",
-    "bigipLink": "[concat(parameters('baseUrl'),'bigip-hourly',parameters('numberOfInstances'),'.json')]",
+    "bigipLink": "[concat(parameters('baseUrl'), '/bigip-hourly',parameters('numberOfInstances'),'.json')]",
     "availabilitySetName": "[concat(variables('bigipNamePrefix'),'-avset')]",
     "nsgName": "[concat(variables('bigipNamePrefix'),'-nsg')]",
     "ipPieces": "[split(parameters('bigip1IP'),'.')]",
@@ -388,7 +386,7 @@
         "storageAccountType": "Premium_LRS"
       }
     },
-    "commandArgs": "[concat(' -p ',variables('appPort'),' -e ', variables('entityId'),' -d ', parameters('authFqdn'),' -a ', parameters('authIp'),' -f ', parameters('domainfqdn'),' -c ', parameters('sslCert'),' -w ', parameters('sslPswd'),' -u ', parameters('baseUrl'))]"
+    "commandArgs": "[concat(' -p ',variables('appPort'),' -e ', variables('entityId'),' -d ', parameters('authFqdn'),' -a ', parameters('authIp'),' -f ', parameters('domainfqdn'),' -c ', parameters('sslCert'),' -w ', parameters('sslPswd'))]"
   },
   "resources": [
     {
@@ -668,6 +666,7 @@
           "nicNamePrefix": { "value": "[variables('nicNamePrefix')]" },
           "newStorageAccountName": { "value": "[variables('newStorageAccountName')]" },
           "runScriptsUrl": { "value": "[variables('runScriptsUrl')]" },
+          "iappUrl": { "value": "[variables('iappUrl')]" },
           "singleQuote": { "value": "[variables('singleQuote')]" },
           "verifyHash": { "value": "[variables('verifyHash')]" },
           "f5CloudLibsTagUrl": { "value": "[variables('f5CloudLibsTagUrl')]" },

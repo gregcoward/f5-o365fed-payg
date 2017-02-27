@@ -116,6 +116,12 @@
         "description": "URL for nested templates"
       }
     },
+    "iAppUrl": {
+      "type": "string",
+      "metadata": {
+        "description": "URL for nested templates"
+      }
+    },
     "f5CloudLibsTagUrl": {
       "type": "string",
       "metadata": {
@@ -329,7 +335,8 @@
         "settings": {
           "fileUris": [
             "[parameters('runScriptsUrl')]",
-            "[parameters('f5CloudLibsTagUrl')]"
+            "[parameters('f5CloudLibsTagUrl')]",
+            "[parameters('iappUrl')]"
           ]
         },
         "protectedSettings": {

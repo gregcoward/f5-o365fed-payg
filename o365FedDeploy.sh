@@ -14,7 +14,6 @@ do	case "$option" in
      a) authIp=$OPTARG;;
      f) domainFqdn=$OPTARG;;
      c) sslCert=$OPTARG;;
-	 u) baseUrl=$OPTARG;;
      w) sslPswd=$OPTARG;;
     esac 
 done
@@ -36,7 +35,7 @@ else
 fi
 
 # download iApp templates
-template_location="http://cdn.f5.com/product/blackbox/staging/azure"
+template_location="/var/lib/waagent/custom-script/download/0"
 
 for template in f5.microsoft_office_365_idp.v1.1.0.tmpl
 do
