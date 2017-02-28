@@ -9,6 +9,7 @@ To properly configure and utilize the F5 o365 federation solution it will be nec
 
 ![screenshot](WAF_1.png)
 
+In addition to configuring the F5 federation IdP service, it will be necessary to configure the o365 environment via powershell.  Addtional information on configuring the o365 enviroment and the BIG-IP as the federation endpoint can be found at <a href="https://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf" target="_blank"></a> 
 
 ### F5 BIG-IP instance types and pricing tiers ###
 
@@ -24,25 +25,21 @@ You choose the throughput and corresponding Azure instance based on the number o
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| numberOfIntances | x | The number of BIG-IPs that will be deployed in front of your application.  This value is hard coded at 1 or 2, depending on the template you selected. |
 | instanceType | x | The desired Azure Virtual Machine instance size. |
 | instanceThroughput | x | The desired Azure Virtual Machine instance throughput. The values are 1G, 200M, and 25M. |
-| adminUsername | x | A user name to login to the WAFs.  The default value is "azureuser". |
-| adminPassword | x | A strong password for the WAFs. Remember this password; you will need it later. |
-| dnsLabel | x | Unique DNS Name for the public IP address used to access the WAFs for management. |
-| applicationProtocols | x | The protocol that will be used to configure the application virtual servers. The only allowed values for these templates are http, https, or https-offload. |
-| applicationAddress | x | The public IP address or DNS FQDN of the application that this WAF will protect. |
-| applicationPort | x | The unencrypted port that your application is listening on (for example, 80). This field is required in the http and https-offload deployment scenarios. |
-| applicationSecurePort | x | The encrypted port that your application is listening on (for example, 443). This field is required in the https deployment scenario. |
-| applicationType | x | The operating system on which your application is running. (Linux OS or Windows OS). |
-| blockingLevel | x | The level of traffic you want to flag as insecure. All applications behind the WAF will use this level. The higher the level, the more traffic that is blocked. The lower the level, the more chances that unsecure traffic will make it through to your application. See the Security blocking levels topic for more information. |
-| customPolicy |  | The URL of a custom ASM security policy, in XML format, that you would like to apply to the deployment. |
-| vaultName | x | The name of the Azure Key Vault where you have stored your SSL cert and key in .pfx format as a secret. This field is required in the https and https-offload deployment scenarios. |
-| vaultResourceGroup | x | The name of the Azure Resource Group where the previously entered Key Vault is located. This field is required in the https and https-offload deployment scenarios. |
-| secretUrl | x | The public URL of the Azure Key Vault secret where your SSL cert and key are stored in .pfx format. This field is required in the https and https-offload deployment scenarios. |
-| certThumbprint | x | The thumbprint of the SSL cert stored in Azure Key Vault. This field is required in the https and https-offload deployment scenarios. |
+| adminUsername | x | A user name to login to the BIG-IPs.  The default value is "azureuser". |
+| adminPassword | x | A strong password for the BIG-IPs. Remember this password; you will need it later. |
+| sshKey | x | An alternative to password authentication with the BIG-IPs. |
+| virtualNetwork | x | Select from either a new virtual network or attach the BIG-IP(s) to an existing virtual network. |
+| bigipIP | x | For existing virtual networks, select an ip address to assign to the first BIG-IP.  If selected, the IP address for the second BIG-IP will be assigned sequentially. |
 | restrictedSrcAddress | x | Restricts management access to a specific network or address. Enter a IP address or address range in CIDR notation, or asterisk for all sources. |
-| tagValues |  | A list of key-value pairs used to create tags on Azure resources. |
+| authFqdn | x | The FQDN of primary AD domain controller used for user authentication. |
+| authIp | x | The IP address of primary AD domain controller used for user authentication. |
+| domainFqdn | x | The federated domain suffix, (for example: 'fdemo.net'). |
+| dnsFqdn | x | The public federation endpoint FQDN, (for example: 'fs.fdemo.net'). |
+| sslCert | x | Browse to and select the SSL certificate, (.pfx format) file corresponding to public facing VIP. |
+| sslPswd | x | The passphrase to open the .pfx certificate file. |
+
 
 ### Results ###
 
@@ -60,24 +57,15 @@ This template will create a new resource group, and inside this new resource gro
 
 After the deployment successfully finishes, you can find the BIG-IP Management UI\SSH URLs by doing the following: 
 
-* Find the resource group that was deployed, which is the same name as the "dnsNameForPublicIP".  When you click on this object you will see the deployment status.  
+* Find the resource group that was deployed and select 'Deployments'.  When you click on this object you will see the deployment status.  
 * Click on the deployment status, and then the deployment.  
-* In the "Outputs" section you will find the URL's and ports that you can use to connect to the F5 WAF cluster. 
-
-### Viewing and clearing security violations ###
-
-From the BIG-IP Management UI, you can view and accept/ignore detected security violations:
-
-* Click Security > Event Logs > Application > Requests
-* From the Requests List, select the illegal request you want to view
-* Select an action to be performed for future occurences of this violation
-* From the top menu, click Apply Policy to apply the changes
+* In the "Outputs" section you will find the URL's and ports that you can use to connect to the F5 BIGIP cluster. 
 
 
 ### Deploy F5 Office 365 SAML Federation Solution in Azure ###
 
-### Single WAF - Deploys one BIG-IP VE ###
+### Hourly - Deploys one BIG-IP VE Hourly ###
 ### HTTP - Deploys an unencrypted application service ###
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ff5devcentral%2Ff5-azure-waf-community%2Fmaster%2Ftemplates%2Fsingle-WAF%2Fhttp%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/?pub_source=email&pub_status=success#create/f5-networks.f5-o365-federation-payg-previewf5-o365-fed-payg" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
