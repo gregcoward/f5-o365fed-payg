@@ -367,7 +367,8 @@
           "fileUris": [
             "[parameters('runScriptsUrl')]",
             "[parameters('f5CloudLibsTagUrl')]",
-            "[parameters('iappUrl')]"
+            "[parameters('iappUrl')]",
+            "[parameters('scriptLoc')]"
           ]
         },
         "protectedSettings": {
