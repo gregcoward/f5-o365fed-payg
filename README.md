@@ -1,4 +1,4 @@
-### F5 Officd 365 SAML Federation Solution Template ###
+### F5 Office 365 SAML Federation Solution Template ###
 
 ### Description ###
 Microsoft Office 365 is a popular choice when you are looking to outsource the management and infrastructure costs of running commodity applications like email and other productivity tools. Office 365 enables the use of a federated identity model that gives you full control of a user's identity, including their password hashes.
