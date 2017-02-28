@@ -1,19 +1,16 @@
-### Azure Web Application Firewall Community Template ###
+### F5 Officd 365 SAML Federation Solution Template ###
 
 ### Description ###
-You can secure your web applications by creating a web application firewall (WAF) that uses the Local Traffic Manager™ (LTM®) and Application Security Manager™ (ASM™) modules. In Azure Security Center, the BIG-IP® VE instances are configured as a WAF for you, complete with traffic monitoring in Azure. The F5 WAF solution has more than 2600 signatures at its disposal to identify and block unwanted traffic.
+Microsoft Office 365 is a popular choice when you are looking to outsource the management and infrastructure costs of running commodity applications like email and other productivity tools. Office 365 enables the use of a federated identity model that gives you full control of a user's identity, including their password hashes.
 
-When you secure your applications by using an F5 WAF, the BIG-IP VE instances are all in Active status (not Active-Standby), and are used as a single WAF, for redundancy and scalability, rather than failover. If one WAF goes down, Azure will keep load balancing to the other.
+Using F5 BIG-IP with Access Policy Manager, (APM) lets you to provide secure, federated identity management from your existing Active Directory to Office 365, without the complexity of additional layers of Active Directory Federation Services (ADFS) servers and proxy servers. You can use many of the enhanced APM security features, such as geographical restrictions and multi-factor authentication, to further protect access to Office 365.
 
-The F5 WAFs will be fully configured in front of your application with the base Security Blocking template that you choose.  When completed, the WAFs will pass traffic through the newly created Azure Public IP.  After acceptance testing, you will want to complete the configuration by changing the DNS entry for your application to point at the newly created public IP address, and then lock down the Network Security Group rules to prevent any traffic from reaching your application except through the F5 WAFs.
-
-The configuration will look like the following diagram, with two separate Azure resource groups: one for your application, and one for the WAF:
+To properly configure and utilize the F5 o365 federation solution it will be necessary for the BIG-IP to have access to one your organization's domain controllers.  This enables the BIG-IP to pre-authenticate users against the organization's active directory. Typically, this can be accomplished by either establishing secure connectivity, (i.e. IPSec VPN or Express Route) between the Azure environment and the corporate infrastructure or by maintaining a read-only domain controller copy in Azure. The configuration will look like the following diagram:
 
 ![screenshot](WAF_1.png)
 
-As traffic passes through the WAF, alerts are logged locally about possible violations. The amount of traffic that is flagged depends on the security blocking level you choose when you create the WAF.
 
-### F5 WAF instance types and pricing tiers ###
+### F5 BIG-IP instance types and pricing tiers ###
 
 You choose the throughput and corresponding Azure instance based on the number of cores and throughput you need. The instances listed below are minimums; you can choose larger instances if you want.
 
@@ -43,8 +40,7 @@ You cannot change the security blocking level after you create the WAF, so be su
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| solutionDeploymentName | x | A simple name for your application. |
-| numberOfIntances | x | The number of WAFs that will be deployed in front of your application.  This value is hard coded at 1 or 2, depending on the template you selected. |
+| numberOfIntances | x | The number of BIG-IPs that will be deployed in front of your application.  This value is hard coded at 1 or 2, depending on the template you selected. |
 | instanceType | x | The desired Azure Virtual Machine instance size. |
 | instanceThroughput | x | The desired Azure Virtual Machine instance throughput. The values are 1G, 200M, and 25M. |
 | adminUsername | x | A user name to login to the WAFs.  The default value is "azureuser". |

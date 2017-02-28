@@ -144,6 +144,7 @@
             "defaultValue": {
               "name": "Vnet",
               "addressPrefixSize": "/16"
+
             },
             "constraints": {
               "minAddressPrefixSize": "/22"
