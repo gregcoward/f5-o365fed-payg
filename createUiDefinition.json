@@ -128,7 +128,7 @@
             "imageReference": {
               "publisher": "f5-networks",
               "offer": "f5-big-ip-hourly",
-              "sku": "[concat('f5-bigip-virtual-edition-', steps('infrastructureSettings').licensedBandwidth,'-best-hourly')]"
+              "sku": "[concat('f5-bigip-virtual-edition-', steps('bigipSettings').licensedBandwidth,'-best-hourly')]"
              }
           },
           {
