@@ -39,7 +39,7 @@ template_location="/var/lib/waagent/custom-script/download/0"
 
 for template in f5.microsoft_office_365_idp.v1.1.0.tmpl
 do
-     curl -k -s -f --retry 5 --retry-delay 10 --retry-max-time 10 -o /config/$template $template_location/$template
+     cp $template_location/$template /config/$template
      response_code=$(curl -sku $user:$(passwd) -w "%{http_code}" -X POST -H "Content-Type: application/json" https://localhost/mgmt/tm/sys/config -d '{"command": "load","name": "merge","options": [ { "file": "/config/'"$template"'" } ] }' -o /dev/null)
      if [[ $response_code != 200  ]]; then
           echo "Failed to install iApp template; exiting with response code '"$response_code"'"
