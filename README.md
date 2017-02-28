@@ -61,9 +61,6 @@ After the deployment successfully finishes, you can find the BIG-IP Management U
 
 
 ### Deploy F5 Office 365 SAML Federation Solution in Azure ###
-
-### Hourly - Deploys one BIG-IP VE Hourly ###
-### HTTP - Deploys an unencrypted application service ###
 <a href="https://portal.azure.com/?pub_source=email&pub_status=success#create/f5-networks.f5-o365-federation-payg-previewf5-o365-fed-payg" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
