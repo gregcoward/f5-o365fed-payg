@@ -20,22 +20,6 @@ You choose the throughput and corresponding Azure instance based on the number o
 | 4 | 200 Mbps | A3 Standard or D3_v2 |
 | 8 | 1 Gbps | A4 or A7 Standard or D4v2 |
 
-### Security blocking levels ###
-The security blocking level you choose when you create the WAF determines how much traffic is blocked and alerted by the F5 WAF.
-
-Attack signatures are rules that identify attacks on a web application and its components. The WAF has at least 2600 attack signatures available. The higher the security level you choose, the more traffic that is blocked by these signatures.
-
-| Level | Details |
-| --- | --- | --- |
-| Low | The fewest attack signatures enabled. There is a greater chance of possible security violations making it through to the web applications, but a lesser chance of false positives. |
-| Medium | A balance between logging too many violations and too many false positives. |
-| High | The most attack signatures enabled. A large number of false positives may be recorded; you must correct these alerts for your application to function correctly. |
-| Custom | Select this option to use your own custom ASM security policy (see below). |
-
-All traffic that is not being blocked is being used by the WAF for learning. Over time, if the WAF determines that traffic is safe, it allows it through to the application. Alternately, the WAF can determine that traffic is unsafe and block it from the application.
-
-You cannot change the security blocking level after you create the WAF, so be sure that you select the correct level.
-
 ### Template parameters ###
 
 | Parameter | Required | Description |
