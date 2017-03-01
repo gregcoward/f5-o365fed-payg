@@ -8,7 +8,6 @@ Using F5 BIG-IP with Access Policy Manager, (APM) lets you to provide secure, fe
 To properly configure and utilize the F5 o365 federation solution it will be necessary for the BIG-IP to have access to one your organization's domain controllers.  This enables the BIG-IP to pre-authenticate users against the organization's active directory. Typically, this can be accomplished by either establishing secure connectivity, (i.e. IPSec VPN or Express Route) between the Azure environment and the corporate infrastructure or by maintaining a read-only domain controller copy in Azure. The configuration will look like the following diagram:
 
 ![alt tag](https://raw.githubusercontent.com/gregcoward/f5-o365fed-byol/master/o365.png)
-![alt tag](https://raw.githubusercontent.com/gregcoward/f5-o365fed-byol/master/o3652.png)
 
 In addition to configuring the F5 federation IdP service, it will be necessary to configure the o365 environment via powershell.  Addtional information on configuring the o365 enviroment and the BIG-IP as the federation endpoint can be found at <a href="https://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf" target="_blank"></a> 
 
@@ -53,6 +52,8 @@ This template will create a new resource group, and inside this new resource gro
 * Public IP Address
 * Network Interface objects for the F5 SAML federation devices
 * F5 SAML Federation Virtual Machines
+
+![alt tag](https://raw.githubusercontent.com/gregcoward/f5-o365fed-byol/master/o3652.png)
 
 ### Connecting to the management interface of the F5 o365 Federation virtual machine(s) ###
 
