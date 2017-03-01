@@ -467,7 +467,7 @@
                                    "sourceAddressPrefix": "[parameters('restrictedSrcAddress')]",
                                    "sourcePortRange": "*",
                                    "destinationAddressPrefix": "*",
-                                   "destinationPortRange": "8443",
+                                   "destinationPortRange": "443",
                                    "protocol": "TCP",
                                    "direction": "Inbound",
                                    "access": "Allow"
@@ -626,7 +626,7 @@
         },
         "protocol": "tcp",
         "frontendPort": "[copyIndex(8443)]",
-        "backendPort": 8443,
+        "backendPort": 443,
         "enableFloatingIP": false
       }
     },
