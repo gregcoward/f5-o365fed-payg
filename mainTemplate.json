@@ -139,7 +139,7 @@
     },
     "vnetAddressPrefix": {
       "type": "string",
-      "defaultValue": "10.2.0.0/16",
+      "defaultValue": "10.0.0.0/16",
       "metadata": {
         "description": "Specify the virtual network address space."
       }
@@ -153,7 +153,7 @@
     },
     "subnetAddressPrefix": {
       "type": "string",
-      "defaultValue": "10.2.1.0/24",
+      "defaultValue": "10.0.1.0/24",
       "metadata": { 
         "description": "Specify the virtual subnet address space."
       }
