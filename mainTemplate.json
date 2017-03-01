@@ -52,6 +52,7 @@
     },
     "sshPublicKey": {
       "type": "string",
+      "defaultValue": "",
       "metadata": {
         "description": "The BIG-IP ssh public key."
       }
