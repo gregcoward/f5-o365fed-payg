@@ -293,7 +293,7 @@
       "numberOfInstances": "[int(steps('bigipSettings').numberOfInstances)]",
       "licensedBandwidth": "[steps('bigipSettings').licensedBandwidth]",
       "adminUsername": "[steps('bigipSettings').adminUsername]",
-      "adminPassword": "[steps('bigipSettings').adminPassword]",
+      "adminPassword": "[steps('bigipSettings').adminPassword.password]",
       "instanceType": "[steps('bigipSettings').instanceType]",
       "authFqdn": "[steps('federationSettings').authFqdn]",
       "authIp": "[steps('federationSettings').authIp]",
