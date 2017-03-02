@@ -63,7 +63,7 @@
             "label": "BIG-IP Administrator Username",
             "defaultValue": "azureuser",
             "toolTip": "Enter administrator's username for the BIG-IP",
-            "osPlatform": "Linux"
+            "osPlatform": "Windows"
           },
           {
             "name": "adminPassword",
