@@ -46,21 +46,9 @@
     },
     "adminPassword": {
       "type": "securestring",
-      "metadata": {
-        "description": "The BIG-IP administrator password."
-      }
-    },
-    "sshPublicKey": {
-      "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "The BIG-IP ssh public key."
-      }
-    },
-    "authenticationType": {
-      "type": "string",
-      "metadata": {
-        "description": "The type of auth utilized - password or ssh public key"
+        "description": "The BIG-IP administrator password."
       }
     },
     "instanceType": {
@@ -660,8 +648,6 @@
           "bigipNamePrefix": { "value": "[variables('bigipNamePrefix')]" },
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
-          "authenticationType": { "value": "[parameters('authenticationType')]" },
-          "sshPublicKey": { "value": "[parameters('sshPublicKey')]" },
           "instanceType": { "value": "[parameters('instanceType')]" },
           "imageName": { "value": "[variables('imageName')]" },
           "availabilitySetName": { "value": "[variables('availabilitySetName')]" },
