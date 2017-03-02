@@ -46,7 +46,6 @@
     },
     "adminPassword": {
       "type": "securestring",
-      "defaultValue": "",
       "metadata": {
         "description": "The BIG-IP administrator password."
       }
